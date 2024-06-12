@@ -126,7 +126,7 @@ int main()
     //histogram_example();
     //rotate270_example();
     //nv21_to_rgb_example();
-    //sobel3x3_example();
+    sobel3x3_example();
     digit_test();
 
     return 0;
