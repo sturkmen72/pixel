@@ -88,7 +88,7 @@ jobs:
     - name: opencv
       if: steps.cache-opencv.outputs.cache-hit != 'true'
       run: |
-        git clone https://github.com/opencv/opencv -b 4.6.0 --depth 1
+        git clone --depth=1 --branch=apng-1 https://github.com/sturkmen72/opencv.git
         cd opencv
         rm -rf modules/gapi
         mkdir build && cd build
