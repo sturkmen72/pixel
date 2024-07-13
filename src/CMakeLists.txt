@@ -26,7 +26,6 @@ add_library(pixel STATIC
   px_border.c
   px_copy_make_border.c
   px_copy_cut_border.c
-  improc_zcx.cpp
   px_sobel.c
 
   px_cnn.c

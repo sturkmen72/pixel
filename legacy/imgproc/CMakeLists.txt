@@ -54,9 +54,6 @@ add_executable(testbed
     # copy_cut_border.h
     # copy_cut_border.c
     # copy_cut_border_test.cpp
-
-    # improc_zcx.h
-    # improc_zcx.cpp
 )
 target_include_directories(testbed
     PUBLIC

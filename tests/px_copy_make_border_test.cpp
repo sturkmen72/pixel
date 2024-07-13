@@ -3,7 +3,6 @@
 
 
 #include "px_image.h"
-#include "improc_zcx.h"
 #include <iostream>
 
 #include "px_opencv_adapter.hpp"
@@ -149,40 +148,6 @@ int main_old()
 
     cv::imwrite("IU_withborder_opencv.png", dst_image_opencv);
     cv::imwrite("IU_withborder_naive.png", dst_image_naive);
-
-    return 0;
-}
-
-int test_with_opencv()
-{
-    cv::Mat src_image = cv::imread("IU.bmp");
-    
-    cv::Size size = src_image.size();
-    int src_height = size.height;
-    int src_width = size.width;
-    
-    px_pad_t pad;
-    pad.top = 2;
-    pad.bottom = 2;
-    pad.left = 2;
-    pad.right = 2;
-
-    int dst_height = src_height + pad.top + pad.bottom;
-    int dst_width = src_width + pad.left + pad.right;
-
-    cv::Size dst_size;
-    dst_size.height = dst_height;
-    dst_size.width = dst_width;
-    cv::Mat dst_zcx(dst_size, src_image.type());
-    cv::Mat dst_opencv(dst_size, src_image.type());
-
-    px_image_t* px_src = px_image_from_opencv(src_image);
-    px_image_t* px_dst = px_image_from_opencv(dst_zcx);
-    px_copy_make_border(px_src, px_dst, pad, PX_BORDER_REFLECT101);
-    cv::copyMakeBorder(src_image, dst_opencv, pad.top, pad.bottom, pad.left, pad.right, cv::BORDER_REFLECT101);
-
-    px_destroy_image_header(px_src);
-    px_destroy_image_header(px_dst);
 
     return 0;
 }
